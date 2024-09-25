@@ -38,7 +38,7 @@ class ResUsers(models.Model):
             uid2 = self.env.user.id
         user = self.env["res.users"].browse(uid2)
         # check if the company of the default OU is active
-        if user.default_operating_unit_id.sudo().company_id in self.env.companies:
+        if user.default_operating_unit_id:
             return user.default_operating_unit_id
         else:
             # find an OU of the main active company
