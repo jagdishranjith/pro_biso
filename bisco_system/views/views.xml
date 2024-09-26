@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+<!--    <record id="mrp_production_form_view_inherited" model="ir.ui.view">-->
+<!--        <field name="name">mrp.production.form.inherited</field>-->
+<!--        <field name="model">mrp.production</field>-->
+<!--        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//header" position="inside">-->
+<!--                <button name="action_generate_serial_numbers" string="Generate Serial Numbers" type="object"-->
+<!--                        attrs="{'invisible': ['|', ('state', '!=', 'confirmed'), ('serial_file_generated', '=', True)]}"-->
+<!--                        class="oe_highlight"/>-->
+<!--            </xpath>-->
+<!--            <notebook position="inside">-->
+<!--                <page string="Serial Numbers" attrs="{'invisible': [('serial_number_ids', '=', [])]}">-->
+<!--                     <group>-->
+<!--                        <field name="serial_file_attachment_id" readonly="1" filename="serial_file_attachment_id.name"/>-->
+<!--                    </group>-->
+<!--                    <field name="serial_number_ids">-->
+<!--                        <tree>-->
+<!--                            <field name="serial_number"/>-->
+<!--                        </tree>-->
+<!--                    </field>-->
+<!--                </page>-->
+<!--            </notebook>-->
+<!--            <field name="state" position="after">-->
+<!--                <field name="serial_file_generated" invisible="1"/>-->
+<!--            </field>-->
+<!--        </field>-->
+<!--    </record>-->
+  </data>
+</odoo>
