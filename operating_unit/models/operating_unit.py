@@ -15,11 +15,10 @@ class OperatingUnit(models.Model):
     active = fields.Boolean(default=True)
     company_id = fields.Many2one(
         "res.company",
-        required=True,
-        readonly=True,
+        required=False,
         default=lambda self: self.env.company,
     )
-    partner_id = fields.Many2one("res.partner", "Partner", required=True)
+    partner_id = fields.Many2one("res.partner", "Partner", required=False)
     user_ids = fields.Many2many(
         "res.users",
         "operating_unit_users_rel",

@@ -14,27 +14,30 @@ class SaleOrder(models.Model):
         string="Operating Unit",
         readonly=False,
         store=True,
-        precompute=True,
         check_company=True,
-        compute="_compute_operating_unit_id",
+        default=lambda self: self._default_operating_unit()
     )
 
-    @api.depends("team_id")
-    def _compute_operating_unit_id(self):
-        for sale in self:
-            if sale.team_id:
-                sale.operating_unit_id = sale.team_id.operating_unit_id
+    @api.model
+    def _default_operating_unit(self):
+        return self.env["res.users"]._get_default_operating_unit(self.env.user.id)
 
-    @api.depends("partner_id", "user_id", "operating_unit_id")
-    def _compute_team_id(self):
-        res = super()._compute_team_id()
-        for order in self:
-            if (
-                order.team_id
-                and order.team_id.operating_unit_id != order.operating_unit_id
-            ):
-                order.team_id = False
-        return res
+    # @api.depends("team_id")
+    # def _compute_operating_unit_id(self):
+    #     for sale in self:
+    #         if sale.team_id:
+    #             sale.operating_unit_id = sale.team_id.operating_unit_id
+
+    # @api.depends("partner_id", "user_id", "operating_unit_id")
+    # def _compute_team_id(self):
+    #     res = super()._compute_team_id()
+    #     for order in self:
+    #         if (
+    #             order.team_id
+    #             and order.team_id.operating_unit_id != order.operating_unit_id
+    #         ):
+    #             order.team_id = False
+    #     return res
 
     @api.depends("operating_unit_id")
     def _compute_journal_id(self):
