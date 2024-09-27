@@ -4,7 +4,7 @@
     'version': '1.0',
     'category': 'Sale',
     'summary': 'Upgrade the base fields attributes',
-    'depends': ['sale'],
+    'depends': ['sale_stock'],
 
     'data': [
         # 'views/views.xml',

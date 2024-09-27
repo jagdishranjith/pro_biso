@@ -111,7 +111,7 @@ class AccountMove(models.Model):
         readonly=False,
         compute="_compute_operating_unit",
         store=True,
-        check_company=True,
+        check_company=False,
     )
 
     @api.model
