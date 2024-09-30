@@ -4,10 +4,11 @@
     'version': '1.0',
     'category': 'Sale',
     'summary': 'Upgrade the base fields attributes',
-    'depends': ['sale_stock'],
+    'depends': ['sale_stock', 'purchase_stock'],
 
     'data': [
-        # 'views/views.xml',
+        'views/purchase_order_view.xml',
+        'views/sale_order_view.xml',
     ],
 
 }
