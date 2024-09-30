@@ -66,17 +66,17 @@ class SaleOrder(models.Model):
                 )
         return res
 
-    @api.constrains("team_id", "operating_unit_id")
-    def _check_team_operating_unit(self):
-        for rec in self:
-            if rec.team_id and rec.team_id.operating_unit_id != rec.operating_unit_id:
-                raise ValidationError(
-                    _(
-                        "Configuration error. The Operating "
-                        "Unit of the sales team must match "
-                        "with that of the quote/sales order."
-                    )
-                )
+    # @api.constrains("team_id", "operating_unit_id")
+    # def _check_team_operating_unit(self):
+    #     for rec in self:
+    #         if rec.team_id and rec.team_id.operating_unit_id != rec.operating_unit_id:
+    #             raise ValidationError(
+    #                 _(
+    #                     "Configuration error. The Operating "
+    #                     "Unit of the sales team must match "
+    #                     "with that of the quote/sales order."
+    #                 )
+    #             )
 
     def _prepare_invoice(self):
         self.ensure_one()
