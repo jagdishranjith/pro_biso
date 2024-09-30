@@ -11,7 +11,6 @@
                 <label for="warehouse_id" class="o_light_label" />
                 <field
                     name="warehouse_id"
-                    attrs="{'required': [('so_from_po', '=', True)]}"
                     class="oe_inline"
                     domain="[('company_id', '=', company_id)]"
                 />
