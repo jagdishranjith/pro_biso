@@ -9,16 +9,16 @@ from odoo.exceptions import ValidationError
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    READONLY_STATES = {
-        "purchase": [("readonly", True)],
-        "done": [("readonly", True)],
-        "cancel": [("readonly", True)],
-    }
+    # READONLY_STATES = {
+    #     "purchase": [("readonly", True)],
+    #     "done": [("readonly", True)],
+    #     "cancel": [("readonly", True)],
+    # }
 
     operating_unit_id = fields.Many2one(
         comodel_name="operating.unit",
         string="Operating Unit",
-        states=READONLY_STATES,
+        # states=READONLY_STATES,
         default=lambda self: (
             self.env["res.users"]._get_default_operating_unit(self.env.uid)
         ),
@@ -27,7 +27,7 @@ class PurchaseOrder(models.Model):
     requesting_operating_unit_id = fields.Many2one(
         comodel_name="operating.unit",
         string="Requesting Operating Unit",
-        states=READONLY_STATES,
+        # states=READONLY_STATES,
         default=lambda self: (
             self.env["res.users"]._get_default_operating_unit(self.env.uid)
         ),
