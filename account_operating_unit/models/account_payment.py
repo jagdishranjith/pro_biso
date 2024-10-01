@@ -15,10 +15,10 @@ class AccountPayment(models.Model):
         store=True,
     )
 
-    @api.depends("journal_id")
-    def _compute_operating_unit_id(self):
-        for payment in self.filtered("journal_id"):
-            payment.operating_unit_id = payment.journal_id.operating_unit_id
+    # @api.depends("journal_id")
+    # def _compute_operating_unit_id(self):
+    #     for payment in self.filtered("journal_id"):
+    #         payment.operating_unit_id = payment.journal_id.operating_unit_id
 
     def _prepare_move_line_default_vals(
         self, write_off_line_vals=None, force_balance=None
@@ -59,3 +59,17 @@ class AccountPaymentRegister(models.TransientModel):
             result['operating_unit_id'] = operating_unit_id
 
         return result
+
+    def _create_payment_vals_from_batch(self, batch_result):
+        vals = super()._create_payment_vals_from_batch(batch_result)
+        vals.update({
+            "operating_unit_id": self.operating_unit_id.id if self.operating_unit_id else False
+        })
+        return vals
+
+    def _create_payment_vals_from_wizard(self, batch_result):
+        vals = super()._create_payment_vals_from_wizard(batch_result)
+        vals.update({
+            "operating_unit_id": self.operating_unit_id.id if self.operating_unit_id else False
+        })
+        return vals
