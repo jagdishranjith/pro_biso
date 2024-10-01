@@ -12,7 +12,7 @@
     "author": "Odoo SA, Akretion, Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
-    "auto_install": True,
+    "auto_install": False,
     "depends": ["purchase_sale_inter_company", "sale_stock", "purchase_stock"],
     "data": ["views/res_config_view.xml"],
 }
