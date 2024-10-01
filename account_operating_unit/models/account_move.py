@@ -14,6 +14,14 @@ class AccountMoveLine(models.Model):
         comodel_name="operating.unit",
     )
 
+    def action_register_payment(self):
+        result = super(AccountMoveLine, self).action_register_payment()
+
+        if self.operating_unit_id:
+            result['context'] = dict(result.get('context', {}), operating_unit_id=self.operating_unit_id.id)
+
+        return result
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
