@@ -52,4 +52,16 @@
             </field>
         </field>
     </record>
+    <record id="inherit_payment_register_wizard" model="ir.ui.view">
+        <field name="name">inherit.account.payment.register.wizard</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account.view_account_payment_register_form" />
+        <field name="arch" type="xml">
+            <field name="communication" position="after">
+                <field
+                    name="operating_unit_id"
+                />
+            </field>
+        </field>
+    </record>
 </odoo>

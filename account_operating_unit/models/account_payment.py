@@ -43,3 +43,19 @@ class AccountPayment(models.Model):
                 ):
                     line["operating_unit_id"] = invoices_ou.id
         return lines
+
+class AccountPaymentRegister(models.TransientModel):
+    _inherit = 'account.payment.register'
+
+    operating_unit_id = fields.Many2one(
+        comodel_name="operating.unit",
+    )
+
+    def default_get(self, fields):
+        result = super(AccountPaymentRegister, self).default_get(fields)
+        operating_unit_id = self.env.context.get('operating_unit_id')
+
+        if operating_unit_id:
+            result['operating_unit_id'] = operating_unit_id
+
+        return result
