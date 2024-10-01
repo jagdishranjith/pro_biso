@@ -26,7 +26,6 @@
                 <field
                     name="operating_unit_id"
                     groups="operating_unit.group_multi_operating_unit"
-                    domain="[('company_id','=', company_id)]"
                     options="{'no_create': True}"
                 />
             </field>

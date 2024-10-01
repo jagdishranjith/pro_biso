@@ -12,7 +12,7 @@ class HrExpenseExpense(models.Model):
     operating_unit_id = fields.Many2one(
         comodel_name="operating.unit",
         string="Operating Unit",
-        default=lambda self: self.env["res.users"].operating_unit_default_get(),
+        default=lambda self: self.env["res.users"]._get_default_operating_unit(),
     )
 
     def action_submit_expenses(self):
@@ -31,21 +31,21 @@ class HrExpenseExpense(models.Model):
             HrExpenseExpense, self.with_context(**ctx)
         ).action_submit_expenses()
 
-    @api.constrains("operating_unit_id", "company_id")
-    def _check_company_operating_unit(self):
-        for rec in self:
-            if (
-                rec.company_id
-                and rec.operating_unit_id
-                and rec.company_id != rec.operating_unit_id.company_id
-            ):
-                raise ValidationError(
-                    _(
-                        "Configuration error. The Company in "
-                        "the Expense and in the Operating "
-                        "Unit must be the same."
-                    )
-                )
+    # @api.constrains("operating_unit_id", "company_id")
+    # def _check_company_operating_unit(self):
+    #     for rec in self:
+    #         if (
+    #             rec.company_id
+    #             and rec.operating_unit_id
+    #             and rec.company_id != rec.operating_unit_id.company_id
+    #         ):
+    #             raise ValidationError(
+    #                 _(
+    #                     "Configuration error. The Company in "
+    #                     "the Expense and in the Operating "
+    #                     "Unit must be the same."
+    #                 )
+    #             )
 
     @api.constrains("operating_unit_id", "sheet_id")
     def _check_expense_operating_unit(self):
@@ -65,7 +65,7 @@ class HrExpenseExpense(models.Model):
                 )
 
     def _get_default_expense_sheet_values(self):
-        sheet = super()._get_default_expense_sheet_values()
+        sheets = super()._get_default_expense_sheet_values()
         if len(self.mapped("operating_unit_id")) != 1 or any(
             not expense.operating_unit_id for expense in self
         ):
@@ -76,13 +76,25 @@ class HrExpenseExpense(models.Model):
                     "no Operating Unit"
                 )
             )
-        sheet.update({"operating_unit_id": self.mapped("operating_unit_id").id})
-        return sheet
+        for sheet in sheets:
+            sheet.update({"operating_unit_id": self.mapped("operating_unit_id").id})
+        return sheets
 
-    def _prepare_move_values(self):
-        move_values = super()._prepare_move_values()
-        move_values["operating_unit_id"] = self.operating_unit_id.id
-        return move_values
+    def _prepare_payments_vals(self):
+        vals = super()._prepare_payments_vals()
+        vals.update({
+            'operating_unit_id': self.operating_unit_id.id,
+            'company_id': self.company_id.id
+        })
+        return vals
+
+    def _prepare_move_lines_vals(self):
+        vals = super()._prepare_move_lines_vals()
+        vals.update({
+            'operating_unit_id': self.operating_unit_id.id,
+            'company_id': self.company_id.id
+        })
+        return vals
 
 
 class HrExpenseSheet(models.Model):
@@ -101,17 +113,33 @@ class HrExpenseSheet(models.Model):
                 {"operating_unit_id": self.operating_unit_id.id}
             )
 
-    @api.constrains("operating_unit_id", "company_id")
-    def _check_company_operating_unit(self):
-        for rec in self:
-            if (
-                rec.company_id
-                and rec.operating_unit_id
-                and rec.company_id != rec.operating_unit_id.company_id
-            ):
-                raise ValidationError(
-                    _(
-                        """Configuration error. The company in
-                the Expense and in the Operating Unit must be the same"""
-                    )
-                )
+    def _prepare_move_vals(self):
+        vals = super()._prepare_move_vals()
+        vals.update({
+            'operating_unit_id': self.operating_unit_id.id,
+            'company_id': self.company_id.id
+        })
+        return vals
+
+    def _prepare_bills_vals(self):
+        vals = super()._prepare_bills_vals()
+        vals.update({
+            'operating_unit_id': self.operating_unit_id.id,
+            'company_id': self.company_id.id
+        })
+        return vals
+
+    # @api.constrains("operating_unit_id", "company_id")
+    # def _check_company_operating_unit(self):
+    #     for rec in self:
+    #         if (
+    #             rec.company_id
+    #             and rec.operating_unit_id
+    #             and rec.company_id != rec.operating_unit_id.company_id
+    #         ):
+    #             raise ValidationError(
+    #                 _(
+    #                     """Configuration error. The company in
+    #             the Expense and in the Operating Unit must be the same"""
+    #                 )
+    #             )
