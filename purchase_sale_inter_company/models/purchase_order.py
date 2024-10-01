@@ -15,6 +15,7 @@ class PurchaseOrder(models.Model):
         compute="_compute_intercompany_sale_order_id",
         compute_sudo=True,
     )
+    pick_from_warehouse_id = fields.Many2one("stock.warehouse")
 
     def _compute_intercompany_sale_order_id(self):
         """A One2many would be simpler, but the record rules make unaccesible for
@@ -79,7 +80,7 @@ class PurchaseOrder(models.Model):
         company_partner = self.company_id.partner_id
         # check pricelist currency should be same with PO/SO document
         if self.currency_id.id != (
-            company_partner.property_product_pricelist.currency_id.id
+                company_partner.property_product_pricelist.currency_id.id
         ):
             raise UserError(
                 _(
@@ -113,7 +114,7 @@ class PurchaseOrder(models.Model):
             sale_order.with_user(intercompany_user.id).sudo().action_confirm()
 
     def _prepare_sale_order_data(
-        self, name, partner, dest_company, direct_delivery_address
+            self, name, partner, dest_company, direct_delivery_address
     ):
         """Generate the Sale Order values from the PO
         :param name : the origin client reference
@@ -134,6 +135,8 @@ class PurchaseOrder(models.Model):
                 "partner_id": partner.id,
                 "date_order": self.date_approve,
                 "auto_purchase_order_id": self.id,
+                "warehouse_id": self.pick_from_warehouse_id.id,
+                "operating_unit_id": self.operating_unit_id.id
             }
         )
         for onchange_method in new_order._onchange_methods["partner_id"]:
