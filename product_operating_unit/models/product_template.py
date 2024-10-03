@@ -11,7 +11,7 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     operating_unit_ids = fields.Many2many(
-        "operating.unit",
+        "billing.branch",
         "product_operating_unit_rel",
         string="Billing Branch",
         compute="_compute_operating_unit_ids",

@@ -9,7 +9,7 @@ class CrmTeam(models.Model):
     _inherit = "crm.team"
 
     operating_unit_id = fields.Many2one(
-        "operating.unit",
+        "billing.branch",
         default=lambda self: self.env["res.users"]._get_default_operating_unit(),
         check_company=True,
     )

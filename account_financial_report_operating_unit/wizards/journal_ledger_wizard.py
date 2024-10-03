@@ -8,7 +8,7 @@ class JournalLedgerReportWizard(models.TransientModel):
     _inherit = "journal.ledger.report.wizard"
 
     operating_unit_ids = fields.Many2many(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
     )
 
     def _prepare_report_journal_ledger(self):

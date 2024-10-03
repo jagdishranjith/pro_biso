@@ -10,7 +10,7 @@ class HrExpenseExpense(models.Model):
     _inherit = "hr.expense"
 
     operating_unit_id = fields.Many2one(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         string="Billing Branch",
         default=lambda self: self.env["res.users"]._get_default_operating_unit(),
     )
@@ -101,7 +101,7 @@ class HrExpenseSheet(models.Model):
     _inherit = "hr.expense.sheet"
 
     operating_unit_id = fields.Many2one(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         string="Billing Branch",
         default=lambda self: self.env["res.users"].operating_unit_default_get(),
     )

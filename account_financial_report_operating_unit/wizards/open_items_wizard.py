@@ -8,7 +8,7 @@ class OpenItemsReportWizard(models.TransientModel):
     _inherit = "open.items.report.wizard"
 
     operating_unit_ids = fields.Many2many(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
     )
 
     def _prepare_report_open_items(self):

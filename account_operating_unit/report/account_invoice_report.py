@@ -9,7 +9,7 @@ class AccountInvoiceReport(models.Model):
     _inherit = "account.invoice.report"
 
     operating_unit_id = fields.Many2one(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         string="Billing Branch",
     )
 

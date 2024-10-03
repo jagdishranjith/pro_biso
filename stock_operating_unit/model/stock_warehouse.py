@@ -18,7 +18,7 @@ class StockWarehouse(models.Model):
                 self.operating_unit_id = ou
 
     operating_unit_id = fields.Many2one(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         string="Billing Branch",
         default=_default_operating_unit,
         check_company=True,

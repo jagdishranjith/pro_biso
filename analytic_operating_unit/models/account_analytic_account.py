@@ -8,10 +8,7 @@ class AccountAnalyticAccount(models.Model):
     _inherit = "account.analytic.account"
 
     operating_unit_ids = fields.Many2many(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         string="Billing Branch",
-        relation="analytic_account_operating_unit_rel",
-        column1="analytic_account_id",
-        column2="operating_unit_id",
         check_company=True,
     )

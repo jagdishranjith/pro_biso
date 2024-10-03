@@ -6,7 +6,7 @@ from odoo import api, fields, models
 
 
 class OperatingUnit(models.Model):
-    _name = "operating.unit"
+    _name = "billing.branch"
     _description = "Billing Branch"
     _rec_names_search = ["name", "code"]
 

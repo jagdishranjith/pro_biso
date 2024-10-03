@@ -16,7 +16,7 @@
     <record id="stock.res_company_1" model="res.company">
         <field name="name">Your company child</field>
     </record>
-    <record id="operating_unit_shop0" model="operating.unit">
+    <record id="operating_unit_shop0" model="billing.branch">
         <field name="name">Chicago</field>
         <field name="code">CH</field>
         <field name="partner_id" ref="stock.res_partner_company_1" />

@@ -10,7 +10,7 @@ class AccountPayment(models.Model):
 
     operating_unit_id = fields.Many2one(
         check_company=True,
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         compute="_compute_operating_unit_id",
         store=True,
     )
@@ -48,7 +48,7 @@ class AccountPaymentRegister(models.TransientModel):
     _inherit = 'account.payment.register'
 
     operating_unit_id = fields.Many2one(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
     )
 
     def default_get(self, fields):

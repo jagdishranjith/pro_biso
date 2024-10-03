@@ -53,7 +53,7 @@ class OperatingUnitCommon(common.TransactionCase):
         if company_id is None:
             company_id = self.company
         ou = (
-            self.env["operating.unit"]
+            self.env["billing.branch"]
             .with_user(uid)
             .create(
                 {

@@ -11,7 +11,7 @@ class AccountMoveLine(models.Model):
 
     operating_unit_id = fields.Many2one(
         check_company=True,
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
     )
 
     def action_register_payment(self):
@@ -113,7 +113,7 @@ class AccountMove(models.Model):
     _inherit = "account.move"
 
     operating_unit_id = fields.Many2one(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         default=lambda self: self._default_operating_unit_id(),
         help="This operating unit will be defaulted in the move lines.",
         readonly=False,

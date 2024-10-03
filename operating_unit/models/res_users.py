@@ -9,7 +9,7 @@ class ResUsers(models.Model):
     _inherit = "res.users"
 
     operating_unit_ids = fields.One2many(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         compute="_compute_operating_unit_ids",
         inverse="_inverse_operating_unit_ids",
         string="Allowed Billing Branch",
@@ -17,16 +17,13 @@ class ResUsers(models.Model):
     )
 
     assigned_operating_unit_ids = fields.Many2many(
-        comodel_name="operating.unit",
-        relation="operating_unit_users_rel",
-        column1="user_id",
-        column2="operating_unit_id",
+        comodel_name="billing.branch",
         string="Billing Branch",
         default=lambda self: self._default_operating_unit(),
     )
 
     default_operating_unit_id = fields.Many2one(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         string="Billing Branch",
         default=lambda self: self._default_operating_unit(),
         domain="[('company_id', '=', current_company_id)]",
@@ -84,7 +81,7 @@ class ResUsers(models.Model):
                 else:
                     dom = []
 
-                user.operating_unit_ids = self.env["operating.unit"].sudo().search(dom)
+                user.operating_unit_ids = self.env["billing.branch"].sudo().search(dom)
             else:
                 user.operating_unit_ids = user.assigned_operating_unit_ids
 

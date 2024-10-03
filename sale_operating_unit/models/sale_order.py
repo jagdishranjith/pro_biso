@@ -10,7 +10,7 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     operating_unit_id = fields.Many2one(
-        comodel_name="operating.unit",
+        comodel_name="billing.branch",
         string="Billing Branch",
         readonly=False,
         store=True,

@@ -18,12 +18,12 @@ class TestOperatingUnit(OperatingUnitCommon):
         self.b2b.with_user(self.user1.id).write({"code": "B2B_changed"})
         # Read list of OU available by User 1
         operating_unit_list_1 = (
-            self.env["operating.unit"]
+            self.env["billing.branch"]
             .with_user(self.user1.id)
             .search([])
             .mapped("code")
         )
-        nou = self.env["operating.unit"].search(
+        nou = self.env["billing.branch"].search(
             [
                 "|",
                 ("company_id", "=", False),
@@ -46,7 +46,7 @@ class TestOperatingUnit(OperatingUnitCommon):
 
         # Read list of OU available by User 2
         operating_unit_list_2 = (
-            self.env["operating.unit"]
+            self.env["billing.branch"]
             .with_user(self.user2.id)
             .search([])
             .mapped("code")
@@ -72,7 +72,7 @@ class TestOperatingUnit(OperatingUnitCommon):
         self.assertEqual(
             user.default_operating_unit_id, default_user.default_operating_unit_id
         )
-        nou = self.env["operating.unit"].search(
+        nou = self.env["billing.branch"].search(
             [
                 "|",
                 ("company_id", "=", False),
@@ -127,7 +127,7 @@ class TestOperatingUnit(OperatingUnitCommon):
 
     def test_create_multi_operating_unit(self):
         res = (
-            self.env["operating.unit"]
+            self.env["billing.branch"]
             .with_user(self.user1.id)
             .create(
                 [

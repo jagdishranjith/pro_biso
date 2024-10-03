@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="view_operating_unit_form" model="ir.ui.view">
-        <field name="name">operating.unit.form</field>
-        <field name="model">operating.unit</field>
+        <field name="name">billing.branch.form</field>
+        <field name="model">billing.branch</field>
         <field name="arch" type="xml">
             <form string="Billing Branch">
                 <group name="main_group">
@@ -16,8 +16,8 @@
         </field>
     </record>
     <record id="view_operating_unit_tree" model="ir.ui.view">
-        <field name="name">operating.unit.tree</field>
-        <field name="model">operating.unit</field>
+        <field name="name">billing.branch.tree</field>
+        <field name="model">billing.branch</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="code" />
@@ -27,8 +27,8 @@
         </field>
     </record>
     <record id="view_operating_unit_search" model="ir.ui.view">
-        <field name="name">operating.unit.search</field>
-        <field name="model">operating.unit</field>
+        <field name="name">billing.branch.search</field>
+        <field name="model">billing.branch</field>
         <field name="arch" type="xml">
             <search string="Search Billing Branch">
                 <field name="name" string="Billing Branch" />
@@ -38,7 +38,7 @@
     </record>
     <record id="action_operating_unit_tree" model="ir.actions.act_window">
         <field name="name">Operating Units</field>
-        <field name="res_model">operating.unit</field>
+        <field name="res_model">billing.branch</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">Click to start a new Operating Unit.</p>

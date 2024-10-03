@@ -9,7 +9,7 @@ class ProductCategory(models.Model):
     _inherit = "product.category"
 
     operating_unit_ids = fields.Many2many(
-        "operating.unit",
+        "billing.branch",
         "product_category_operating_unit_rel",
         string="Billing Branch",
     )
