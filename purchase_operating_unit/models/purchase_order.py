@@ -26,7 +26,7 @@ class PurchaseOrder(models.Model):
 
     requesting_operating_unit_id = fields.Many2one(
         comodel_name="operating.unit",
-        string="Billing Branch",
+        string="Requesting Billing Branch",
         # states=READONLY_STATES,
         default=lambda self: (
             self.env["res.users"]._get_default_operating_unit(self.env.uid)

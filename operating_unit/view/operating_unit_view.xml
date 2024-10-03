@@ -47,7 +47,7 @@
     <menuitem
         action="action_operating_unit_tree"
         id="menu_action_operating_unit_tree"
-        string="Billing Branch"
+        name="Billing Branch"
         parent="base.menu_users"
         groups="operating_unit.group_multi_operating_unit"
     />
