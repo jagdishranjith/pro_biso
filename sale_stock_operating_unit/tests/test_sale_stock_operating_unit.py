@@ -36,7 +36,7 @@ class TestSaleStockOperatingUnit(TestStockOperatingUnit, TestSaleOperatingUnit):
         )
 
     def test_security(self):
-        """Test Sale Operating Unit"""
+        """Test Sale Billing Branch"""
         # Confirm Sale1
         self._confirm_sale(self.sale3)
         # Checks that OU in sale order and stock picking matches or not.

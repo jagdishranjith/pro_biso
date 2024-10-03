@@ -3,7 +3,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
 {
-    "name": "Stock with Operating Units",
+    "name": "Stock with Billing Branch",
     "summary": "Adds the concept of operating unit (OU) in stock management",
     "version": "17.0.1.0.0",
     "category": "Generic Modules/Sales & Purchases",

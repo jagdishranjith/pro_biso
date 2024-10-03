@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Purchase Stock Operating Unit",
+    "name": "Purchase Stock Billing Branch",
     "summary": "Copies the operating unit of purchase picking to the stock picking",
     "version": "17.0.1.0.0",
     "author": "Ecosoft, Odoo Community Association (OCA)",

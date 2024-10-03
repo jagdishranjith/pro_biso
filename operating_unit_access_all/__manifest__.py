@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    "name": "Access all Operating Units",
+    "name": "Access all Billing Branch",
     "version": "17.0.1.0.0",
     "author": "Ecosoft,Odoo Community Association (OCA)",
     "category": "Generic",

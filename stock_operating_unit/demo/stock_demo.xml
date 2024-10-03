@@ -24,7 +24,7 @@
     </record>
     <!-- Chicago Warehouse -->
     <record id="stock.stock_warehouse_shop0" model="stock.warehouse">
-        <field name="operating_unit_id" ref="operating_unit_shop0" />
+        <field name="operating_unit_id"  ref="operating_unit_shop0" />
     </record>
     <!-- Your Company, Chicago shop -->
     <record id="stock.stock_location_shop0" model="stock.location">

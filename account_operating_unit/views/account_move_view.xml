@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='account_id']" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     groups="operating_unit.group_multi_operating_unit"
                 />
@@ -24,7 +24,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='account_id']" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     optional="show"
                     groups="operating_unit.group_multi_operating_unit"
@@ -45,7 +45,7 @@
             </field>
             <filter name="group_by_account" position="after">
                 <filter
-                    string="Operating Unit"
+                    string="Billing Branch"
                     name="operating_unit_grouped"
                     icon="terp-folder-green"
                     context="{'group_by':'operating_unit_id'}"
@@ -61,13 +61,13 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@id='header_right_group']" position="inside">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     groups="operating_unit.group_multi_operating_unit"
                     readonly="state != 'draft'"
                 />
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     invisible="1"
                     groups="!operating_unit.group_multi_operating_unit"
                     readonly="state != 'draft'"
@@ -93,13 +93,13 @@
                 position="after"
             >
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     optional="show"
                     groups="operating_unit.group_multi_operating_unit"
                 />
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     column_invisible="True"
                     groups="!operating_unit.group_multi_operating_unit"
                 />
@@ -109,7 +109,7 @@
                 position="after"
             >
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     optional="show"
                     groups="operating_unit.group_multi_operating_unit"
@@ -124,7 +124,7 @@
         <field name="arch" type="xml">
             <field name="company_id" position="before">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     optional="show"
                     groups="operating_unit.group_multi_operating_unit"
@@ -145,7 +145,7 @@
             </field>
             <filter name="salesperson" position="after">
                 <filter
-                    string="Operating Unit"
+                    string="Billing Branch"
                     name="operating_unit_grouped"
                     icon="terp-folder-orange"
                     domain="[]"

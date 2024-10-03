@@ -12,7 +12,7 @@ class StockPicking(models.Model):
 
     operating_unit_id = fields.Many2one(
         comodel_name="operating.unit",
-        string="Requesting Operating Unit",
+        string="Billing Branch",
         readonly=False,
         compute="_compute_operating_unit_id",
         store=True,

@@ -11,7 +11,7 @@ class HrExpenseExpense(models.Model):
 
     operating_unit_id = fields.Many2one(
         comodel_name="operating.unit",
-        string="Operating Unit",
+        string="Billing Branch",
         default=lambda self: self.env["res.users"]._get_default_operating_unit(),
     )
 
@@ -73,7 +73,7 @@ class HrExpenseExpense(models.Model):
                 _(
                     "You cannot submit the Expenses having "
                     "different Operating Units or with "
-                    "no Operating Unit"
+                    "no Billing Branch"
                 )
             )
         for sheet in sheets:
@@ -102,7 +102,7 @@ class HrExpenseSheet(models.Model):
 
     operating_unit_id = fields.Many2one(
         comodel_name="operating.unit",
-        string="Operating Unit",
+        string="Billing Branch",
         default=lambda self: self.env["res.users"].operating_unit_default_get(),
     )
 

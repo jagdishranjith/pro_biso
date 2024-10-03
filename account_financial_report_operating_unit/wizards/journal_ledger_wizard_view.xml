@@ -7,10 +7,10 @@
         <field name="inherit_id" ref="account_financial_report.journal_ledger_wizard" />
         <field name="arch" type="xml">
             <footer position="before">
-                <separator string="Operating units" />
+                <separator string="Billing Branch" />
                 <group name="ou_filter" col="4">
                     <field
-                        name="operating_unit_ids"
+                        name="operating_unit_ids" string="Billing Branch"
                         widget="many2many_tags"
                         options="{'no_create': True}"
                         colspan="4"

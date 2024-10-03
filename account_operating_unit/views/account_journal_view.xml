@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <field name="country_code" position="before">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     groups="operating_unit.group_multi_operating_unit"
                 />

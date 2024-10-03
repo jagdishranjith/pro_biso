@@ -10,7 +10,7 @@ from . import test_account_operating_unit as test_ou
 @tagged("post_install", "-at_install")
 class TestOuSecurity(test_ou.TestAccountOperatingUnit):
     def test_security(self):
-        """Test Security of Account Operating Unit"""
+        """Test Security of Account Billing Branch"""
         # User 2 is only assigned to Operating Unit B2C, and cannot list
         # Journal Entries from Operating Unit B2B.
         move_ids = self.aml_model.with_user(self.user2.id).search(

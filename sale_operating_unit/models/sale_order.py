@@ -11,7 +11,7 @@ class SaleOrder(models.Model):
 
     operating_unit_id = fields.Many2one(
         comodel_name="operating.unit",
-        string="Operating Unit",
+        string="Billing Branch",
         readonly=False,
         store=True,
         check_company=True,
@@ -90,6 +90,6 @@ class SaleOrderLine(models.Model):
 
     operating_unit_id = fields.Many2one(
         related="order_id.operating_unit_id",
-        string="Operating Unit",
+        string="Billing Branch",
         store=True,
     )

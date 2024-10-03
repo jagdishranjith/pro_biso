@@ -10,7 +10,7 @@ from . import test_stock_operating_unit as test_stock_ou
 @tagged("post_install", "-at_install")
 class TestStockPicking(test_stock_ou.TestStockOperatingUnit):
     def test_stock_ou_security(self):
-        """Test Security of Stock Operating Unit"""
+        """Test Security of Stock Billing Branch"""
         # User 1 can list the warehouses assigned to
         # Main and B2C OU
         wh_ids = (

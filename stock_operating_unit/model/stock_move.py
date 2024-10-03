@@ -10,12 +10,12 @@ class StockMove(models.Model):
 
     operating_unit_id = fields.Many2one(
         related="location_id.operating_unit_id",
-        string="Source Location Operating Unit",
+        string="Billing Branch",
         check_company=True,
     )
     operating_unit_dest_id = fields.Many2one(
         related="location_dest_id.operating_unit_id",
-        string="Dest. Location Operating Unit",
+        string="Billing Branch",
         check_company=True,
     )
 

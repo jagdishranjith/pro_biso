@@ -129,7 +129,7 @@ class TestSaleOperatingUnit(OperatingUnitCommon):
         return invoice_id
 
     def test_security(self):
-        """Test Sale Operating Unit"""
+        """Test Sale Billing Branch"""
         # User 2 is only assigned to Operating Unit B2C, and cannot
         # Access Sales order from Main Operating Unit.
         sale = self.sale_model.with_user(self.user2.id).search(
@@ -149,7 +149,7 @@ class TestSaleOperatingUnit(OperatingUnitCommon):
         self.assertNotEqual(b2c.ids, [], "Invoice should have b2c OU")
 
     def test_security_2(self):
-        """Test Sale Operating Unit"""
+        """Test Sale Billing Branch"""
         # User 2 is only assigned to Operating Unit B2C, and cannot
         # Access Sales order from Main Operating Unit.
         sale = self.sale_model.with_user(self.user2.id).search(

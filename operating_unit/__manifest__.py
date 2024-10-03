@@ -3,7 +3,7 @@
 # Copyright 2015-TODAY Serpent Consulting Services Pvt. Ltd. - Sudhir Arya
 # License: LGPL-3 or later (https://www.gnu.org/licenses/lgpl.html).
 {
-    "name": "Operating Unit",
+    "name": "Billing Branch",
     "summary": "An operating unit (OU) is an organizational entity part of a "
     "company",
     "version": "17.0.1.0.0",

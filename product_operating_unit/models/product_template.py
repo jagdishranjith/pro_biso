@@ -13,7 +13,7 @@ class ProductTemplate(models.Model):
     operating_unit_ids = fields.Many2many(
         "operating.unit",
         "product_operating_unit_rel",
-        string="Operating Units",
+        string="Billing Branch",
         compute="_compute_operating_unit_ids",
         store=True,
         readonly=False,

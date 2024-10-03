@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <field name="journal_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     optional="show"
                     groups="operating_unit.group_multi_operating_unit"
@@ -29,7 +29,7 @@
                     groups="operating_unit.group_multi_operating_unit"
                 />
                 <filter
-                    string="Operating Unit"
+                    string="Billing Branch"
                     name="operating_unit_grouped"
                     domain="[]"
                     context="{'group_by': 'operating_unit_id'}"
@@ -45,7 +45,7 @@
         <field name="arch" type="xml">
             <field name="journal_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     groups="operating_unit.group_multi_operating_unit"
                 />
@@ -59,7 +59,7 @@
         <field name="arch" type="xml">
             <field name="communication" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                 />
             </field>
         </field>

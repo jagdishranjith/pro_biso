@@ -49,7 +49,7 @@ class OperatingUnitCommon(common.TransactionCase):
         return user
 
     def _create_operating_unit(self, uid, name, code, company_id=None):
-        """Create Operating Unit"""
+        """Create Billing Branch"""
         if company_id is None:
             company_id = self.company
         ou = (

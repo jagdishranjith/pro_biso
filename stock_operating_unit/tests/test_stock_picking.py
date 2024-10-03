@@ -10,7 +10,7 @@ from . import test_stock_operating_unit as test_stock_ou
 @tagged("post_install", "-at_install")
 class TestStockPicking(test_stock_ou.TestStockOperatingUnit):
     def test_stock_picking_ou(self):
-        """Test Pickings of Stock Operating Unit"""
+        """Test Pickings of Stock Billing Branch"""
         picking_ids = (
             self.PickingObj.with_user(self.user1)
             .search([("id", "=", self.picking_in1.id)])

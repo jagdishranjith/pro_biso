@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <field name="user_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -23,7 +23,7 @@
         <field name="arch" type="xml">
             <field name="user_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -36,13 +36,13 @@
         <field name="arch" type="xml">
             <field name="payment_term_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     widget="selection"
                     groups="operating_unit.group_multi_operating_unit"
                     readonly="state not in ['draft', 'sent']"
                 />
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     invisible="1"
                     groups="!operating_unit.group_multi_operating_unit"
                 />
@@ -66,7 +66,7 @@
         <field name="arch" type="xml">
             <filter name="my_sale_orders_filter" position="after">
                 <filter
-                    string="Operating Unit"
+                    string="Billing Branch"
                     name="operating_unit_grouped"
                     groups="operating_unit.group_multi_operating_unit"
                     context="{'group_by':'operating_unit_id'}"
@@ -74,7 +74,7 @@
             </filter>
             <field name="partner_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>

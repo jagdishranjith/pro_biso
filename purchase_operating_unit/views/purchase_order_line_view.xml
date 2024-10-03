@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -20,7 +20,7 @@
         <field name="arch" type="xml">
             <field name="price_unit" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -33,7 +33,7 @@
         <field name="arch" type="xml">
             <filter name="groupby_supplier" position="after">
                 <filter
-                    string="Operating Unit"
+                    string="Billing Branch"
                     name="operating_unit_grouped"
                     groups="operating_unit.group_multi_operating_unit"
                     context="{'group_by': 'operating_unit_id'}"
@@ -41,7 +41,7 @@
             </filter>
             <field name="partner_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>

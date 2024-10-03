@@ -57,7 +57,7 @@ class TestProductOperatingUnit(common.TransactionCase):
             self.product1.operating_unit_ids = [(6, 0, [self.b2b.id])]
 
     def test_po_ou_security(self):
-        """Test Security of Product Operating Unit"""
+        """Test Security of Product Billing Branch"""
 
         # User 1 is only assigned to Operating Unit 1, and can see all
         # products having Operating Unit 1.

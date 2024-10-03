@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <field name="company_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     groups="operating_unit.group_multi_operating_unit"
                 />
@@ -24,7 +24,7 @@
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -40,7 +40,7 @@
                 position="after"
             >
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     groups="operating_unit.group_multi_operating_unit"
                 />
@@ -54,7 +54,7 @@
         <field name="arch" type="xml">
             <field name="usage" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -67,7 +67,7 @@
         <field name="arch" type="xml">
             <field name="location_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -80,7 +80,7 @@
         <field name="arch" type="xml">
             <field name="origin" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -96,7 +96,7 @@
                 position="after"
             >
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     options="{'no_create': True}"
                     groups="operating_unit.group_multi_operating_unit"
                     readonly="state != 'draft'"
@@ -111,13 +111,13 @@
         <field name="arch" type="xml">
             <field name="product_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
             <filter name="picking_type" position="before">
                 <filter
-                    string="Operating Unit"
+                    string="Billing Branch"
                     name="operating_unit_grouped"
                     context="{'group_by':'operating_unit_id'}"
                     groups="operating_unit.group_multi_operating_unit"
@@ -132,7 +132,7 @@
         <field name="arch" type="xml">
             <field name="location_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -151,7 +151,7 @@
         <field name="arch" type="xml">
             <field name="location_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -170,7 +170,7 @@
         <field name="arch" type="xml">
             <field name="location_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>
@@ -189,7 +189,7 @@
         <field name="arch" type="xml">
             <field name="location_id" position="after">
                 <field
-                    name="operating_unit_id"
+                    name="operating_unit_id" string="Billing Branch"
                     groups="operating_unit.group_multi_operating_unit"
                 />
             </field>

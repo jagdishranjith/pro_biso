@@ -4,7 +4,7 @@
         <field name="name">operating.unit.form</field>
         <field name="model">operating.unit</field>
         <field name="arch" type="xml">
-            <form string="Operating Unit">
+            <form string="Billing Branch">
                 <group name="main_group">
                     <field name="name" />
                     <field name="code" />
@@ -30,8 +30,8 @@
         <field name="name">operating.unit.search</field>
         <field name="model">operating.unit</field>
         <field name="arch" type="xml">
-            <search string="Search Operating Unit">
-                <field name="name" string="Operating Unit" />
+            <search string="Search Billing Branch">
+                <field name="name" string="Billing Branch" />
                 <field name="code" string="Code" />
             </search>
         </field>
@@ -47,6 +47,7 @@
     <menuitem
         action="action_operating_unit_tree"
         id="menu_action_operating_unit_tree"
+        string="Billing Branch"
         parent="base.menu_users"
         groups="operating_unit.group_multi_operating_unit"
     />

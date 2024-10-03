@@ -7,7 +7,7 @@ from . import test_purchase_operating_unit as test_po_ou  # noqa
 
 class TestPoSecurity(test_po_ou.TestPurchaseOperatingUnit):
     def test_po_ou_security(self):
-        """Test Security of Purchase Operating Unit"""
+        """Test Security of Purchase Billing Branch"""
         # User 2 is only assigned to Operating Unit 2, and cannot list
         # purchase orders from Operating Unit 1.
         po_ids = (

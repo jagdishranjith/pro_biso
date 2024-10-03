@@ -3,7 +3,7 @@
 #   (<http://www.serpentcs.com>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 {
-    "name": "Sales Team Operating Unit",
+    "name": "Sales Team Billing Branch",
     "version": "17.0.1.0.0",
     "author": "ForgeFlow, SerpentCS, Odoo Community Association (OCA)",
     "license": "LGPL-3",
