@@ -1,7 +1,4 @@
-# © 2019 ForgeFlow S.L.
-# - Jordi Ballester Alomar
-# © 2019 Serpent Consulting Services Pvt. Ltd. - Sudhir Arya
-# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
+
 {
     "name": "Billing Branch in Sales",
     "version": "17.0.1.0.0",
