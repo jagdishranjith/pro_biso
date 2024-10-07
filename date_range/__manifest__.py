@@ -6,8 +6,8 @@
     "version": "17.0.1.2.0",
     "category": "Uncategorized",
     "website": "https://github.com/OCA/server-ux",
-    "author": "ACSONE SA/NV, Odoo Community Association (OCA)",
-    "license": "LGPL-3",
+    "author": "Coding Crown",
+    "license": "Other proprietary",
     "installable": True,
     "depends": ["web"],
     "data": [

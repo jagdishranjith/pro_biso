@@ -10,8 +10,8 @@
     "version": "17.0.1.0.0",
     "category": "Accounting & Finance",
     "website": "https://github.com/OCA/multi-company",
-    "author": "Odoo SA, Akretion, Odoo Community Association (OCA)",
-    "license": "AGPL-3",
+    "author": "Coding Crown",
+    "license": "Other proprietary",
     "depends": ["account", "base_setup"],
     "data": [
         "views/account_move_views.xml",

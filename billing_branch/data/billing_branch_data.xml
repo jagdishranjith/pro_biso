@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <!-- Basic Billing Branch  -->
+    <record id="main_billing_branch" model="billing.branch">
+        <field name="name">Main Billing Branch</field>
+        <field name="code">OU1</field>
+        <field name="partner_id" ref="base.main_partner" />
+    </record>
+    <record model="res.users" id="base.user_root">
+        <field name="default_billing_branch_id" ref="main_billing_branch" />
+        <field
+            name="assigned_billing_branch_ids"
+            eval="[(4, ref('main_billing_branch'))]"
+        />
+    </record>
+    <record model="res.users" id="base.user_admin">
+        <field name="default_billing_branch_id" ref="main_billing_branch" />
+        <field
+            name="assigned_billing_branch_ids"
+            eval="[(4, ref('main_billing_branch'))]"
+        />
+    </record>
+</odoo>

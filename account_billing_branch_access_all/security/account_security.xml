@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="group_all_ou_account" model="res.groups">
+        <field name="name">Access all OUs' accounting</field>
+        <field name="category_id" ref="billing_branch.module_billing_branches" />
+    </record>
+
+    <function model="ir.rule" name="write">
+        <value
+            eval="[ref('account_billing_branch.ir_rule_account_journal_allowed_billing_branches'),
+                   ref('account_billing_branch.ir_rule_move_line_allowed_billing_branches'),
+                   ref('account_billing_branch.ir_rule_move_allowed_billing_branches'),
+                   ref('account_billing_branch.ir_rule_account_payment_allowed_billing_branches'),
+                   ref('account_billing_branch.ir_rule_invoice_report_allowed_billing_branches'),]"
+        />
+        <value
+            eval="{'domain_force': &quot;['|','|',(1, '=', 1) if user.has_group('account_billing_branch_access_all.group_all_ou_account') else (0, '=', 1),('billing_branch_id','=',False),('billing_branch_id','in', user.billing_branch_ids.ids)]&quot;}"
+        />
+    </function>
+
+</odoo>

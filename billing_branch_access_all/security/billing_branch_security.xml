@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="group_all_billing_branch" model="res.groups">
+        <field name="name">Access all Billing Branchs</field>
+        <field name="category_id" ref="billing_branch.module_billing_branches" />
+    </record>
+
+    <function model="ir.rule" name="write">
+        <value
+            eval="[ref('billing_branch.ir_rule_billing_branch_allowed_billing_branches')]"
+        />
+        <value
+            eval="{'domain_force': &quot;['|',(1, '=', 1) if user.has_group('billing_branch_access_all.group_all_billing_branch') else (0, '=', 1),('id','in',billing_branch_ids)]&quot;}"
+        />
+    </function>
+
+</odoo>

@@ -1,7 +1,4 @@
-# Copyright 2013-Today Odoo SA
-# Copyright 2016-2019 Chafique DELLI @ Akretion
-# Copyright 2018-2019 Tecnativa - Carlos Dauden
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
 
 from odoo import _, fields, models
 from odoo.exceptions import UserError
@@ -136,7 +133,7 @@ class PurchaseOrder(models.Model):
                 "date_order": self.date_approve,
                 "auto_purchase_order_id": self.id,
                 "warehouse_id": self.pick_from_warehouse_id.id,
-                "operating_unit_id": self.operating_unit_id.id
+                "billing_branch_id": self.billing_branch_id.id
             }
         )
         for onchange_method in new_order._onchange_methods["partner_id"]:

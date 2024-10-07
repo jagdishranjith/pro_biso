@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--© 2016-17 ForgeFlow S.L.-->
+<!--© 2016 Serpent Consulting Services Pvt. Ltd.-->
+<!--License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).-->
+<odoo>
+    <record id="view_move_line_form" model="ir.ui.view">
+        <field name="name">account.move.line.form</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='account_id']" position="after">
+                <field
+                    name="billing_branch_id" string="Billing Branch"
+                    options="{'no_create': True}"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_move_line_tree" model="ir.ui.view">
+        <field name="name">account.move.line.tree</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='account_id']" position="after">
+                <field
+                    name="billing_branch_id" string="Billing Branch"
+                    options="{'no_create': True}"
+                    optional="show"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_account_move_line_filter" model="ir.ui.view">
+        <field name="name">Journal Items</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_account_move_line_filter" />
+        <field name="arch" type="xml">
+            <field name="account_id" position="after">
+                <field
+                    name="billing_branch_id"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+            </field>
+            <filter name="group_by_account" position="after">
+                <filter
+                    string="Billing Branch"
+                    name="billing_branch_grouped"
+                    icon="terp-folder-green"
+                    context="{'group_by':'billing_branch_id'}"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+            </filter>
+        </field>
+    </record>
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@id='header_right_group']" position="inside">
+                <field
+                    name="billing_branch_id" string="Billing Branch"
+                    options="{'no_create': True}"
+                    groups="billing_branch.group_multi_billing_branch"
+                    readonly="state != 'draft'"
+                />
+                <field
+                    name="billing_branch_id" string="Billing Branch"
+                    invisible="1"
+                    groups="!billing_branch.group_multi_billing_branch"
+                    readonly="state != 'draft'"
+                />
+            </xpath>
+            <field name="invoice_line_ids" position="attributes">
+                <attribute name="context" operation="update">
+                    {
+                        'billing_branch_id': billing_branch_id,
+                        'default_billing_branch_id': billing_branch_id
+                    }
+                </attribute>
+            </field>
+            <field name="line_ids" position="attributes">
+                <attribute name="context" operation="update">
+                    {
+                        'default_billing_branch_id': billing_branch_id
+                    }
+                </attribute>
+            </field>
+            <xpath
+                expr="//field[@name='invoice_line_ids']/tree//field[@name='account_id']"
+                position="after"
+            >
+                <field
+                    name="billing_branch_id" string="Billing Branch"
+                    options="{'no_create': True}"
+                    optional="show"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+                <field
+                    name="billing_branch_id" string="Billing Branch"
+                    column_invisible="True"
+                    groups="!billing_branch.group_multi_billing_branch"
+                />
+            </xpath>
+            <xpath
+                expr="//field[@name='line_ids']/tree//field[@name='account_id']"
+                position="after"
+            >
+                <field
+                    name="billing_branch_id" string="Billing Branch"
+                    options="{'no_create': True}"
+                    optional="show"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_invoice_tree" model="ir.ui.view">
+        <field name="name">account.invoice.tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <field
+                    name="billing_branch_id" string="Billing Branch"
+                    options="{'no_create': True}"
+                    optional="show"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+            </field>
+        </field>
+    </record>
+    <record id="view_account_invoice_filter" model="ir.ui.view">
+        <field name="name">account.invoice.select</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter" />
+        <field name="arch" type="xml">
+            <field name="invoice_user_id" position="after">
+                <field
+                    name="billing_branch_id"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+            </field>
+            <filter name="salesperson" position="after">
+                <filter
+                    string="Billing Branch"
+                    name="billing_branch_grouped"
+                    icon="terp-folder-orange"
+                    domain="[]"
+                    groups="billing_branch.group_multi_billing_branch"
+                    context="{'group_by':'billing_branch_id'}"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>
