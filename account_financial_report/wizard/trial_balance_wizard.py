@@ -1,8 +1,4 @@
-# Author: Julien Coux
-# Copyright 2016 Camptocamp SA
-# Copyright 2017 Akretion - Alexis de Lattre
-# Copyright 2018 ForgeFlow, S.L.
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError

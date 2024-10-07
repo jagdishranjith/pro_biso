@@ -1,5 +1,4 @@
-# Copyright 2016 ACSONE SA/NV (<http://acsone.eu>)
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError

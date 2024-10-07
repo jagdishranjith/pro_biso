@@ -1,5 +1,4 @@
-# Copyright 2019-20 ForgeFlow S.L. (https://www.forgeflow.com)
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
 
 import itertools
 import operator

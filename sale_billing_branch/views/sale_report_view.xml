@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 ForgeFlow S.L.
+     Serpent Consulting Services Pvt. Ltd.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0) -->
+<odoo>
+    <record id="view_sale_report_search" model="ir.ui.view">
+        <field name="name">sale.report.search</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.view_order_product_search" />
+        <field name="arch" type="xml">
+            <field name="date" position="after">
+                <field
+                    name="billing_branch_id"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+            </field>
+            <filter name="year" position="after">
+                <filter
+                    name='group_by_billing_branch'
+                    string="Billing Branch"
+                    context="{'group_by':'billing_branch_id'}"
+                    groups="billing_branch.group_multi_billing_branch"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>

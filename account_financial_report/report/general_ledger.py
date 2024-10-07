@@ -1,7 +1,4 @@
-# ?? 2016 Julien Coux (Camptocamp)
-# Copyright 2020 ForgeFlow S.L. (https://www.forgeflow.com)
-# Copyright 2022 Tecnativa - V??ctor Mart??nez
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
 
 import calendar
 import datetime
